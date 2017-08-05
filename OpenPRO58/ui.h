@@ -17,7 +17,7 @@
 #define CHAR_HEIGHT 7
 
 namespace Ui {
-//    extern OLED_CLASS display;
+    extern Adafruit_SSD1306 display;
     extern bool shouldDrawUpdate;
     extern bool shouldDisplay;
     extern bool shouldFullRedraw;

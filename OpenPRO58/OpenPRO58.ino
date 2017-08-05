@@ -1,8 +1,18 @@
 #include "settings.h"
 
 #include "hw_config.h"
-#include "ui.h"
+
+
+#include "settings_eeprom.h"
+
+#include "channels.h"
+#include "receiver.h"
+#include "receiver_spi.h"
+
 #include "buttons.h"
+#include "state.h"
+#include "ui.h"
+
 
 
 static void globalMenuButtonHandler(
@@ -13,8 +23,12 @@ static void globalMenuButtonHandler(
 void setup() {
   // init pins
   setupPins();
+  StateMachine::setup();
   Ui::setup();
-  //TODO EEPROM readout
+ // Receiver::setActiveReceiver(Receiver::ReceiverId::A);
+  Buttons::registerChangeFunc(globalMenuButtonHandler);
+ // Switch to initial state.
+  StateMachine::switchState(StateMachine::State::SEARCH);
   
 }
 
@@ -45,20 +59,33 @@ void setupPins() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+    //Receiver::update();
+    Buttons::update();
+    StateMachine::update();
+    Ui::update();
+   // EepromSettings.update();
 
+    if (
+        StateMachine::currentState != StateMachine::State::SCREENSAVER
+        && StateMachine::currentState != StateMachine::State::BANDSCAN
+        && (millis() - Buttons::lastChangeTime) >
+            (SCREENSAVER_TIMEOUT * 1000)
+    ) {
+        StateMachine::switchState(StateMachine::State::SCREENSAVER);
+    }
 }
 
 static void globalMenuButtonHandler(
     Button button,
     Buttons::PressType pressType
 ) {
- /*   if (
+    if (
         StateMachine::currentState != StateMachine::State::MENU &&
         button == Button::MODE &&
         pressType == Buttons::PressType::HOLDING
     ) {
         StateMachine::switchState(StateMachine::State::MENU);
     }
-    */
+    
 }
 

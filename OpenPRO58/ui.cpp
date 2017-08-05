@@ -14,10 +14,7 @@ namespace Ui {
         display.setTextColor(WHITE);
         display.setTextSize(1);
         display.setTextWrap(false);
-        display.display();
-        delay(2000);
         display.clearDisplay();
-        display.display();
         display.begin();
     }
 

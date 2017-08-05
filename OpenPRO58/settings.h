@@ -45,5 +45,10 @@
 // Time needed to hold mode to get to menu
 #define BUTTON_WAIT_FOR_MENU 1000
 
+// rx5808 module need >20ms to tune.
+// 25 ms will do a 40 channel scan in 1 second.
+#define MIN_TUNE_TIME 25
+    
+
 #endif // file_defined
 
