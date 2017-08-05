@@ -1,10 +1,21 @@
-#include "hw_config.h"
 #include "settings.h"
 
+#include "hw_config.h"
+#include "ui.h"
+#include "buttons.h"
+
+
+static void globalMenuButtonHandler(
+    Button button,
+    Buttons::PressType pressType
+);
 
 void setup() {
   // init pins
-  setupPins()
+  setupPins();
+  Ui::setup();
+  //TODO EEPROM readout
+  
 }
 
 void setupPins() {
@@ -13,9 +24,9 @@ void setupPins() {
     pinMode(PIN_BUTTON_UP, INPUT_PULLUP);
     pinMode(PIN_BUTTON_MODE, INPUT_PULLUP);
     pinMode(PIN_BUTTON_DOWN, INPUT_PULLUP);
-    pinMode(PIN_BUTTON_B0, INPUT_PULLUP);
-    pinMode(PIN_BUTTON_B1, INPUT_PULLUP);
-    pinMode(PIN_BUTTON_B2, INPUT_PULLUP);
+    pinMode(PIN_BUTTON_EB0, INPUT_PULLUP);
+    pinMode(PIN_BUTTON_EB1, INPUT_PULLUP);
+    pinMode(PIN_BUTTON_EB2, INPUT_PULLUP);
 
     pinMode(PIN_LED_A,OUTPUT);
     #ifdef USE_DIVERSITY
@@ -36,3 +47,18 @@ void loop() {
   // put your main code here, to run repeatedly:
 
 }
+
+static void globalMenuButtonHandler(
+    Button button,
+    Buttons::PressType pressType
+) {
+ /*   if (
+        StateMachine::currentState != StateMachine::State::MENU &&
+        button == Button::MODE &&
+        pressType == Buttons::PressType::HOLDING
+    ) {
+        StateMachine::switchState(StateMachine::State::MENU);
+    }
+    */
+}
+

@@ -7,9 +7,9 @@
 #define PIN_BUTTON_DOWN         PB12
 
 // Inputs on module (optional inputs from headset)
-#define PIN_BUTTON_B0           PB13
-#define PIN_BUTTON_B1           PA11
-#define PIN_BUTTON_B2           PB15
+#define PIN_BUTTON_EB0          PB13
+#define PIN_BUTTON_EB1          PA11
+#define PIN_BUTTON_EB2          PB15
 
 #define PIN_BUZZER              PB8
 
