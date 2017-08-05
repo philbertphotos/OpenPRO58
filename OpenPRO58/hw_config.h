@@ -26,8 +26,9 @@
 // Receiver switch
 #define PIN_SW                  PC15
 
-//#define PIN_SPI_DATA            PA5
-//#define PIN_SPI_SLAVE_SELECT    PA4
-//#define PIN_SPI_CLOCK           PA7
+#define PIN_SPI_DATA            PA5
+#define PIN_SPI_SLAVE_SELECT_A  PA4
+#define PIN_SPI_SLAVE_SELECT_B  PA3
+#define PIN_SPI_CLOCK           PA7
 
 #endif // file_defined

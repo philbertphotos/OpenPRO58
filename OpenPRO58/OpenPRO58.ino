@@ -25,7 +25,7 @@ void setup() {
   setupPins();
   StateMachine::setup();
   Ui::setup();
- // Receiver::setActiveReceiver(Receiver::ReceiverId::A);
+  Receiver::setActiveReceiver(Receiver::ReceiverId::B);
   Buttons::registerChangeFunc(globalMenuButtonHandler);
  // Switch to initial state.
   StateMachine::switchState(StateMachine::State::SEARCH);
@@ -47,23 +47,33 @@ void setupPins() {
         pinMode(PIN_LED_B,OUTPUT);
     #endif
 
-    pinMode(PIN_RSSI_A, INPUT_PULLUP);
+    pinMode(PIN_RSSI_A, INPUT_ANALOG);
     #ifdef USE_DIVERSITY
-        pinMode(PIN_RSSI_B, INPUT_PULLUP);
+        pinMode(PIN_RSSI_B, INPUT_ANALOG);
     #endif
 
     pinMode(PIN_SW, OUTPUT);
+
+    pinMode(PIN_SPI_DATA, OUTPUT);
+    pinMode(PIN_SPI_SLAVE_SELECT_A, OUTPUT);
+    pinMode(PIN_SPI_SLAVE_SELECT_B, OUTPUT);
+    
+    pinMode(PIN_SPI_CLOCK, OUTPUT);
+    digitalWrite(PIN_SPI_SLAVE_SELECT_A, HIGH);
+    digitalWrite(PIN_SPI_SLAVE_SELECT_B, HIGH);
+    digitalWrite(PIN_SPI_CLOCK, LOW);
+    digitalWrite(PIN_SPI_DATA, LOW);
 }
 
 
 
 void loop() {
   // put your main code here, to run repeatedly:
-    //Receiver::update();
+    Receiver::update();
     Buttons::update();
     StateMachine::update();
     Ui::update();
-   // EepromSettings.update();
+    EepromSettings.update();
 
     if (
         StateMachine::currentState != StateMachine::State::SCREENSAVER
