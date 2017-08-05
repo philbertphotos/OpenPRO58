@@ -1,3 +1,6 @@
+#ifndef HW_CONFIG_H
+#define HW_CONFIG_H
+
 // Buttons on module (required)
 #define PIN_BUTTON_UP           PA8
 #define PIN_BUTTON_MODE         PB14
@@ -27,3 +30,4 @@
 //#define PIN_SPI_SLAVE_SELECT    PA4
 //#define PIN_SPI_CLOCK           PA7
 
+#endif // file_defined
