@@ -23,3 +23,6 @@ To
 HardWire HWIRE(1,I2C_FAST_MODE); // I2c1
 
 //HardWire HWIRE(2,I2C_FAST_MODE); // I2c2
+
+
+//note not neccessary now, library is part of the project
