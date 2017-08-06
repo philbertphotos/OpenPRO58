@@ -4,7 +4,8 @@ How to connect to STM32
 
 # ![Back](pro58-back.jpg)
 
-Thanks ove_ from RCG
+Thanks ove_ from RCG for the pictures!
+
 Option 1 - SWD
 
 See pictures for SWD pins
