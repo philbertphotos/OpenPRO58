@@ -11,6 +11,7 @@ See pictures for SWD pins
 Option 2 - Internal serial bootloader
 
 See pictures above for TX and RX pins. Connect here 3V3 USB->UART converter.
+Button on the side is NRST a.k.a RESET.
 
 # ![TXRX](DSC_0547.JPG)
 # ![Dongle](DSC_0548.JPG)
