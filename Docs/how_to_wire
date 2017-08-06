@@ -1,0 +1,7 @@
+How to connect to STM32
+
+
+
+Option 1 - SWD
+
+Option 2 - Internal serial bootloader
