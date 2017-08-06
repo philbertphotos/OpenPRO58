@@ -18,7 +18,7 @@ Button on the side is NRST a.k.a RESET.
 # ![TXRX](DSC_0547.JPG)
 # ![Dongle](DSC_0548.JPG)
 
-Than connect BOOT pins accordingly - green wire soldered close to STM32. And desolder the resistor as marked on the picture above.
+Than connect BOOT pins accordingly - green wire soldered close to STM32. And desolder the resistor as marked by red circle on the picture above.
 
 # ![BOOT_PINS](DSC_0543.JPG)
 
