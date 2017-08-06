@@ -11,7 +11,6 @@
 
 #include "buttons.h"
 #include "state.h"
-
 #include "ui.h"
 #include "Eeprom24C01_02.h"
 
@@ -25,21 +24,15 @@ void setup() {
   // init pins
   setupPins();
 
-  EepromSettings.init();
+    EepromSettings.init();
   EepromSettings.load();
-  Receiver::setChannel(EepromSettings.startChannel); 
   StateMachine::setup();
   Ui::setup();
-  
-  
 
-  Receiver::setActiveReceiver(Receiver::ReceiverId::A);
-
-
-  
+  Receiver::setActiveReceiver(Receiver::ReceiverId::B);
   Buttons::registerChangeFunc(globalMenuButtonHandler);
  // Switch to initial state.
- StateMachine::switchState(StateMachine::State::SEARCH); 
+  StateMachine::switchState(StateMachine::State::SEARCH);
   
 }
 
@@ -64,14 +57,12 @@ void setupPins() {
     #endif
 
     pinMode(PIN_SW, OUTPUT);
-    digitalWrite(PIN_SW, HIGH);
 
     pinMode(PIN_SPI_DATA, OUTPUT);
     pinMode(PIN_SPI_SLAVE_SELECT_A, OUTPUT);
     pinMode(PIN_SPI_SLAVE_SELECT_B, OUTPUT);
     
     pinMode(PIN_SPI_CLOCK, OUTPUT);
-    
     digitalWrite(PIN_SPI_SLAVE_SELECT_A, HIGH);
     digitalWrite(PIN_SPI_SLAVE_SELECT_B, HIGH);
     digitalWrite(PIN_SPI_CLOCK, LOW);

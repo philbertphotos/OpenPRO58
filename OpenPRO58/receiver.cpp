@@ -47,14 +47,11 @@ namespace Receiver {
     }
 
     void setActiveReceiver(ReceiverId receiver) {
-        #ifdef USE_DIVERSITY
-
+ 
                 digitalWrite(PIN_LED_A, receiver != ReceiverId::A);
                 digitalWrite(PIN_LED_B, receiver != ReceiverId::B);
                 digitalWrite(PIN_SW, receiver == ReceiverId::A);             
-        #else
-            digitalWrite(PIN_LED_A, HIGH);
-        #endif
+    
 
         activeReceiver = receiver;
     }
@@ -64,10 +61,10 @@ namespace Receiver {
     }
 
     uint16_t updateRssi() {
-        analogRead(PIN_RSSI_A); // Fake read to let ADC settle.
+    //    analogRead(PIN_RSSI_A); // Fake read to let ADC settle.
         rssiARaw = analogRead(PIN_RSSI_A);
         #ifdef USE_DIVERSITY
-            analogRead(PIN_RSSI_B);
+      //      analogRead(PIN_RSSI_B);
             rssiBRaw = analogRead(PIN_RSSI_B);
         #endif
 

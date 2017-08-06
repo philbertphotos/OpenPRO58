@@ -41,7 +41,7 @@ struct EepromSettings {
     void load();
     void save();
     void markDirty();
-
+    void init();
     void initDefaults();
 
 };

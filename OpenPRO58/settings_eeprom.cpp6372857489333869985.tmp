@@ -138,6 +138,9 @@ static EEPROMClass EEPROM;
 
 void EepromSettings::init() {
     eep.initialize();
+    Serial.begin(115200);
+    Serial.println("\nEEPROM INIT");
+//    EepromSettings::initDefaults();
 }
 
 void EepromSettings::update() {
@@ -145,6 +148,7 @@ void EepromSettings::update() {
         if (saveTimer.hasTicked()) {
             isDirty = false;
             saveTimer.reset();
+              Serial.println("\nUPDATE DIRTY");
             this->save();
         }
     }
@@ -152,7 +156,24 @@ void EepromSettings::update() {
 
 void EepromSettings::load() {
     EEPROM.get(0, *this);
-    
+    Serial.println("\nMagic: ");
+    Serial.print(magic);
+    Serial.println("\startChannel: ");   
+    Serial.print(startChannel);
+    Serial.println("\beepEnabled: ");   
+    Serial.print(beepEnabled);
+    Serial.println("\searchManual: ");  
+    Serial.print(searchManual);     
+    Serial.println("\searchOrderByChannel: ");   
+    Serial.print(searchOrderByChannel);
+    Serial.println("\rssiAMax: ");   
+    Serial.print(rssiAMax);   
+    Serial.println("\rssiAMin: ");   
+    Serial.print(rssiAMin);
+
+
+
+
     if (this->magic != EEPROM_MAGIC)
         this->initDefaults();
 }
