@@ -14,3 +14,6 @@ Major differnecies:
 ToDo
 - clean-up EEPROM code - done in very dirty way
 - convert soft SPI for modules to hardware
+
+How to setup Development enviroment https://github.com/MartinLaza/OpenPRO58/blob/master/Docs/setup_enviroment.md
+How to wire to the module https://github.com/MartinLaza/OpenPRO58/blob/master/Docs/how_to_wire.md
