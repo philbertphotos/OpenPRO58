@@ -78,13 +78,13 @@ static const unsigned char PROGMEM logo[] = {
 
 
 void StateMachine::ScreensaverStateHandler::onEnter() {
-    showLogo = true;
+    showLogo = false;
 }
 
 void StateMachine::ScreensaverStateHandler::onUpdate() {
     if (this->displaySwapTimer.hasTicked()) {
         this->displaySwapTimer.reset();
-        showLogo = !showLogo;
+ //       showLogo = !showLogo;
 
         Ui::needUpdate();
     }

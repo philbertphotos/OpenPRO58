@@ -11,7 +11,6 @@
 
 #include "buttons.h"
 #include "state.h"
-#include "state_search.h"
 #include "ui.h"
 #include "Eeprom24C01_02.h"
 
@@ -24,6 +23,7 @@ static void globalMenuButtonHandler(
 void setup() {
   // init pins
   setupPins();
+  delay(300);
   EepromSettings.init();
   EepromSettings.load();
   Receiver::setChannel(EepromSettings.startChannel);
