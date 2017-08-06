@@ -15,9 +15,11 @@ Path:.\Arduino\Hardware\Arduino_STM32-master\STM32F1\libraries\Adafruit_SSD1306
 From
 
 //HardWire HWIRE(1,I2C_FAST_MODE); // I2c1
+
 HardWire HWIRE(2,I2C_FAST_MODE); // I2c2
 
 To
 
 HardWire HWIRE(1,I2C_FAST_MODE); // I2c1
+
 //HardWire HWIRE(2,I2C_FAST_MODE); // I2c2
